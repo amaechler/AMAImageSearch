@@ -71,6 +71,9 @@
             
             [weakSelf.scrollView setContentSize:CGSizeMake(weakSelf.imageView.frame.size.width, weakSelf.imageView.frame.size.height)];
             [weakSelf.scrollView setScrollEnabled:YES];
+
+            // Set the image
+            weakSelf.imageView.image = image;
             
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }
