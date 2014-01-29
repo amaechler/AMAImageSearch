@@ -2,7 +2,7 @@
 //  SearchViewController.m
 //  AMAImageSearch
 //
-//  Created by Andreas Mächler on 01.10.12.
+//  Created by Andreas Maechler on 01.10.12.
 //  Copyright (c) 2012 amaechler. All rights reserved.
 //
 

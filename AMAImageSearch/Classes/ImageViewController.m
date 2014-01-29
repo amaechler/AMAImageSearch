@@ -2,7 +2,7 @@
 //  ImageViewController.m
 //  AMAImageSearch
 //
-//  Created by Andreas Mächler on 02.10.12.
+//  Created by Andreas Maechler on 02.10.12.
 //  Copyright (c) 2012 amaechler. All rights reserved.
 //
 
@@ -60,21 +60,23 @@
     [request setHTTPShouldHandleCookies:NO];
     [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
     
+    __weak ImageViewController *weakSelf = self;
+    
     [self.imageView setImageWithURLRequest:request placeholderImage:nil
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             
             // Adjust image view
-            self.imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            weakSelf.imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+            weakSelf.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
             
-            [self.scrollView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
-            [self.scrollView setScrollEnabled:YES];
+            [weakSelf.scrollView setContentSize:CGSizeMake(weakSelf.imageView.frame.size.width, weakSelf.imageView.frame.size.height)];
+            [weakSelf.scrollView setScrollEnabled:YES];
             
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             NSLog(@"An error occured when loading the image, %@", [error description]);
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }];
 }
 

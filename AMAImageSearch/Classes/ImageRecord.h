@@ -2,7 +2,7 @@
 //  ImageRecord.h
 //  AMAImageSearch
 //
-//  Created by Andreas Mächler on 26.09.12.
+//  Created by Andreas Maechler on 26.09.12.
 //  Copyright (c) 2012 amaechler. All rights reserved.
 //
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EF4894B0-50C8-46BE-9A37-A637EDE2F907</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AMAImageSearch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BEB6B01F-4DA5-40EF-B1FF-F62437CE91EA</key>
+		<string>https://github.com/amaechler/AMAImageSearch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AMAImageSearch.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BEB6B01F-4DA5-40EF-B1FF-F62437CE91EA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/amaechler/AMAImageSearch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BEB6B01F-4DA5-40EF-B1FF-F62437CE91EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BEB6B01F-4DA5-40EF-B1FF-F62437CE91EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AMAImageSearch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
