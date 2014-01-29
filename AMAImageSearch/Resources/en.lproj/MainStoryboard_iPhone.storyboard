@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0OP-xb-ujD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h6t-FX-CAZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search Images" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-ms-sAn">
@@ -28,7 +28,7 @@
                                 </connections>
                             </searchBar>
                             <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Bm5-Gb-CcJ">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThumbCell" rowHeight="72" id="zll-dr-Okp" customClass="ThumbCell">
@@ -104,7 +104,8 @@
                             <constraint firstItem="Bm5-Gb-CcJ" firstAttribute="trailing" secondItem="h6t-FX-CAZ" secondAttribute="trailing" id="vXz-w5-TAk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SearchAPI" id="frI-pO-2hM"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="SearchAPI" id="ZFI-Ew-g3H"/>
                     <connections>
                         <outlet property="searchbar" destination="EAB-ms-sAn" id="8R2-Mb-KCG"/>
                         <outlet property="tableView" destination="Bm5-Gb-CcJ" id="6Ea-jF-dl3"/>
@@ -112,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtk-az-FUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="19"/>
+            <point key="canvasLocation" x="346" y="31"/>
         </scene>
         <!--Image View Controller - Image Name-->
         <scene sceneID="KOw-61-T1Y">
