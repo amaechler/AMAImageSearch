@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPClient.h"
+#import "AFHTTPSessionManager.h"
 #import "ImageSearching.h"
 
-@interface AFGoogleAPIClient : AFHTTPClient <ImageSearching>
+@interface AFGoogleAPIClient : AFHTTPSessionManager <ImageSearching>
 
 + (AFGoogleAPIClient *)sharedClient;
 

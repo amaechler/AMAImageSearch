@@ -182,7 +182,7 @@
     
     NSLog(@"Using class %@ for searching images...", searchProviderString);
     [sharedClient findImagesForQuery:self.searchbar.text
-         success:^(AFHTTPRequestOperation *operation, NSArray *imageArray) {
+         success:^(NSURLSessionDataTask *dataTask, NSArray *imageArray) {
              self.images = [NSMutableArray arrayWithArray:imageArray];
              [self.tableView reloadData];
              
@@ -190,7 +190,7 @@
                  [MBProgressHUD hideHUDForView:self.view animated:YES];
              });
          }
-         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         failure:^(NSURLSessionDataTask *dataTask, NSError *error) {
              NSLog(@"An error occured while searching for images, %@", [error description]);
          }
      ];

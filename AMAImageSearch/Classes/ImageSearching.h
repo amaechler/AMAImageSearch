@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^ISSuccessBlock)(AFHTTPRequestOperation *operation, NSArray *images);
-typedef void (^ISFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void (^ISSuccessBlock)(NSURLSessionDataTask *, NSArray *);
+typedef void (^ISFailureBlock)(NSURLSessionDataTask *, NSError *);
 
 @protocol ImageSearching <NSObject>
 @required
