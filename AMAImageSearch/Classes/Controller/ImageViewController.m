@@ -10,12 +10,16 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
-#import "AutoCenterScrollView.h"
 
-@interface ImageViewController ()
+@interface ImageViewController () <UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet AutoCenterScrollView *scrollView;
-@property (strong, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLeft;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintRight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintBottom;
 
 @end
 
@@ -38,19 +42,12 @@
 {
     [super viewDidLoad];
     
-    if (self.imageURL == nil)
+    if (self.imageURL == nil) {
         return;
+    }
     
     // Setup the scrollview
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
-    [self.scrollView setCanCancelContentTouches:NO];
-    self.scrollView.clipsToBounds = YES;	// default is NO, we want to restrict drawing within our scrollview
-    self.scrollView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    
-    self.imageView = [[UIImageView alloc] init];
-    [self.scrollView addSubview:self.imageView];
-
-    self.scrollView.centeredView = self.imageView;
     
     // Show a loading spinner
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -64,17 +61,11 @@
     
     [self.imageView setImageWithURLRequest:request placeholderImage:nil
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            
-            // Adjust image view
-            weakSelf.imageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-            weakSelf.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-            
-            [weakSelf.scrollView setContentSize:CGSizeMake(weakSelf.imageView.frame.size.width, weakSelf.imageView.frame.size.height)];
-            [weakSelf.scrollView setScrollEnabled:YES];
-
             // Set the image
             weakSelf.imageView.image = image;
             
+            [self updateZoom];
+
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -95,6 +86,62 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return self.imageView;
+}
+
+// Update zoom scale and constraints
+// It will also animate because willAnimateRotationToInterfaceOrientation
+// is called from within an animation block
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    
+    [self updateZoom];
+    
+    // A hack needed for small images to animate properly on orientation change
+    if (self.scrollView.zoomScale == 1) {
+        self.scrollView.zoomScale = 1.0001;
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    [self updateConstraints];
+}
+
+- (void)updateConstraints
+{
+    float imageWidth = self.imageView.image.size.width;
+    float imageHeight = self.imageView.image.size.height;
+    
+    float viewWidth = self.view.bounds.size.width;
+    float viewHeight = self.view.bounds.size.height;
+    
+    // center image if it is smaller than screen
+    float hPadding = (viewWidth - self.scrollView.zoomScale * imageWidth) / 2;
+    if (hPadding < 0) hPadding = 0;
+    
+    float vPadding = (viewHeight - self.scrollView.zoomScale * imageHeight) / 2;
+    if (vPadding < 0) vPadding = 0;
+    
+    self.constraintLeft.constant = hPadding;
+    self.constraintRight.constant = hPadding;
+    
+    self.constraintTop.constant = vPadding;
+    self.constraintBottom.constant = vPadding;
+}
+
+// Zoom to show as much image as possible unless image is smaller than screen
+- (void)updateZoom
+{
+    float minZoom = MIN(self.view.bounds.size.width / self.imageView.image.size.width,
+                        self.view.bounds.size.height / self.imageView.image.size.height);
+    
+    if (minZoom > 1) {
+        minZoom = 1;
+    }
+    
+    self.scrollView.minimumZoomScale = minZoom;
+    self.scrollView.zoomScale = minZoom;
 }
 
 @end

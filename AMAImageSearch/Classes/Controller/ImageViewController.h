@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class SceneViewController;
 
-@interface ImageViewController : UIViewController <UIScrollViewDelegate>
+@interface ImageViewController : UIViewController
 
 @property (strong, nonatomic) NSURL *imageURL;
 

@@ -127,8 +127,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.10000000000000001" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="xzD-Lo-Mgc" customClass="AutoCenterScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" minimumZoomScale="0.10000000000000001" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="xzD-Lo-Mgc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="rzn-4c-066">
+                                        <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rzn-4c-066" firstAttribute="top" secondItem="xzD-Lo-Mgc" secondAttribute="top" constant="184" id="M01-qX-3kg"/>
+                                    <constraint firstItem="rzn-4c-066" firstAttribute="leading" secondItem="xzD-Lo-Mgc" secondAttribute="leading" constant="60" id="XCY-T6-xbW"/>
+                                    <constraint firstAttribute="bottom" secondItem="rzn-4c-066" secondAttribute="bottom" constant="184" id="XRh-sh-wpu"/>
+                                    <constraint firstAttribute="trailing" secondItem="rzn-4c-066" secondAttribute="trailing" constant="60" id="asj-c7-OuG"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="aP3-7g-3x4" id="aIP-Tz-A2u"/>
                                 </connections>
@@ -146,12 +158,17 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Jfb-O1-Uzv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="constraintBottom" destination="XRh-sh-wpu" id="7g5-6r-Ahp"/>
+                        <outlet property="constraintLeft" destination="XCY-T6-xbW" id="uAY-4h-wjI"/>
+                        <outlet property="constraintRight" destination="asj-c7-OuG" id="cFE-YJ-ClZ"/>
+                        <outlet property="constraintTop" destination="M01-qX-3kg" id="zOq-Um-hDA"/>
+                        <outlet property="imageView" destination="rzn-4c-066" id="t43-4B-nmm"/>
                         <outlet property="scrollView" destination="xzD-Lo-Mgc" id="EqT-JL-bDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3uC-zq-f7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="19"/>
+            <point key="canvasLocation" x="791" y="31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FVi-IN-43e">
