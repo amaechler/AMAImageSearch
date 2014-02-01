@@ -57,7 +57,7 @@
 - (void)updateTitle
 {
     NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
-    self.title = searchProviderString;
+    self.title = [NSClassFromString(searchProviderString) title];;
     
     NSLog(@"Updated search provider to %@", searchProviderString);
 }

@@ -19,6 +19,11 @@ static NSString * const kAFInstagramAPIClientID = @"";
 
 @implementation AFInstagramAPIClient
 
++ (NSString *)title
+{
+    return @"Instagram";
+}
+
 + (AFInstagramAPIClient *)sharedClient
 {
     static AFInstagramAPIClient *_sharedClient = nil;

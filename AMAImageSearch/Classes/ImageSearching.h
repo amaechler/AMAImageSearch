@@ -14,6 +14,8 @@ typedef void (^ISFailureBlock)(NSURLSessionDataTask *, NSError *);
 @protocol ImageSearching <NSObject>
 @required
 
++ (NSString *)title;
+
 + (id)sharedClient;
 - (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure;
 

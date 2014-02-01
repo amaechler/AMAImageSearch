@@ -17,6 +17,11 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
 
 @implementation AFGoogleAPIClient
 
++ (NSString *)title
+{
+    return @"Google Images";
+}
+
 + (AFGoogleAPIClient *)sharedClient
 {
     static AFGoogleAPIClient *_sharedClient = nil;
@@ -58,5 +63,5 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
         }];
     
 }
-     
+
 @end
