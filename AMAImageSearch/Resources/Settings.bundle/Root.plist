@@ -23,11 +23,15 @@
 			<array>
 				<string>Google</string>
 				<string>Instagram</string>
+				<string>Bing</string>
+				<string>Unsplash</string>
 			</array>
 			<key>Values</key>
 			<array>
 				<string>AFGoogleAPIClient</string>
 				<string>AFInstagramAPIClient</string>
+				<string>AFBingAPIClient</string>
+				<string>AFUnsplashAPIClient</string>
 			</array>
 		</dict>
 	</array>
