@@ -13,7 +13,6 @@
 		4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2218189C78A500B49921 /* ImageViewController.m */; };
 		4F6B2226189C78A500B49921 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B221A189C78A500B49921 /* SearchViewController.m */; };
 		4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B221D189C78A500B49921 /* ImageRecord.m */; };
-		4F6B2228189C78A500B49921 /* AutoCenterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2220189C78A500B49921 /* AutoCenterScrollView.m */; };
 		4F6B2229189C78A500B49921 /* ThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2222189C78A500B49921 /* ThumbCell.m */; };
 		4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222B189C795700B49921 /* AFBingAPIClient.m */; };
 		4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222F189C795700B49921 /* AFUnsplashAPIClient.m */; };
@@ -46,8 +45,6 @@
 		4F6B221A189C78A500B49921 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4F6B221C189C78A500B49921 /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRecord.h; sourceTree = "<group>"; };
 		4F6B221D189C78A500B49921 /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRecord.m; sourceTree = "<group>"; };
-		4F6B221F189C78A500B49921 /* AutoCenterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCenterScrollView.h; sourceTree = "<group>"; };
-		4F6B2220189C78A500B49921 /* AutoCenterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCenterScrollView.m; sourceTree = "<group>"; };
 		4F6B2221189C78A500B49921 /* ThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbCell.h; sourceTree = "<group>"; };
 		4F6B2222189C78A500B49921 /* ThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbCell.m; sourceTree = "<group>"; };
 		4F6B222A189C795700B49921 /* AFBingAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBingAPIClient.h; sourceTree = "<group>"; };
@@ -136,8 +133,6 @@
 		4F6B221E189C78A500B49921 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4F6B221F189C78A500B49921 /* AutoCenterScrollView.h */,
-				4F6B2220189C78A500B49921 /* AutoCenterScrollView.m */,
 				4F6B2221189C78A500B49921 /* ThumbCell.h */,
 				4F6B2222189C78A500B49921 /* ThumbCell.m */,
 			);
@@ -324,7 +319,6 @@
 				4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */,
 				4F6B2226189C78A500B49921 /* SearchViewController.m in Sources */,
 				4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */,
-				4F6B2228189C78A500B49921 /* AutoCenterScrollView.m in Sources */,
 				4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */,
 				4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */,
 				4F6B2229189C78A500B49921 /* ThumbCell.m in Sources */,
