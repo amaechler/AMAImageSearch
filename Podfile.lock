@@ -17,14 +17,17 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - CHTCollectionViewWaterfallLayout (0.5)
   - MBProgressHUD (0.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - CHTCollectionViewWaterfallLayout (~> 0.1)
   - MBProgressHUD (~> 0.8)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  CHTCollectionViewWaterfallLayout: 7f263afec3801ba93538e9524ba79ec0b96c8d64
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
 
 COCOAPODS: 0.29.0

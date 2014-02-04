@@ -13,7 +13,6 @@
 		4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2218189C78A500B49921 /* ImageViewController.m */; };
 		4F6B2226189C78A500B49921 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B221A189C78A500B49921 /* SearchViewController.m */; };
 		4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B221D189C78A500B49921 /* ImageRecord.m */; };
-		4F6B2229189C78A500B49921 /* ThumbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2222189C78A500B49921 /* ThumbCell.m */; };
 		4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222B189C795700B49921 /* AFBingAPIClient.m */; };
 		4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222F189C795700B49921 /* AFUnsplashAPIClient.m */; };
 		4F71C6F6161A33FE005909AB /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71C6F5161A33FE005909AB /* placeholder.png */; };
@@ -25,6 +24,7 @@
 		4FB62D00161327EB00B10E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */; };
 		4FB62D01161327EB00B10E30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */; };
 		4FB62D08161327F200B10E30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB62D05161327F200B10E30 /* AppDelegate.m */; };
+		4FBFFE8718A0541B006EC296 /* AMAImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */; };
 		4FDD6E6A161ADB3A002E9286 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD6E69161ADB3A002E9286 /* Settings.bundle */; };
 		4FDF682E161330FE00757BFB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDF682D161330FE00757BFB /* CFNetwork.framework */; };
 		4FDF68301613310400757BFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDF682F1613310400757BFB /* SystemConfiguration.framework */; };
@@ -45,8 +45,6 @@
 		4F6B221A189C78A500B49921 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		4F6B221C189C78A500B49921 /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRecord.h; sourceTree = "<group>"; };
 		4F6B221D189C78A500B49921 /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRecord.m; sourceTree = "<group>"; };
-		4F6B2221189C78A500B49921 /* ThumbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbCell.h; sourceTree = "<group>"; };
-		4F6B2222189C78A500B49921 /* ThumbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbCell.m; sourceTree = "<group>"; };
 		4F6B222A189C795700B49921 /* AFBingAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFBingAPIClient.h; sourceTree = "<group>"; };
 		4F6B222B189C795700B49921 /* AFBingAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBingAPIClient.m; sourceTree = "<group>"; };
 		4F6B222E189C795700B49921 /* AFUnsplashAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUnsplashAPIClient.h; sourceTree = "<group>"; };
@@ -62,6 +60,8 @@
 		4FB62CFB161327EB00B10E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		4FB62D04161327F200B10E30 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		4FB62D05161327F200B10E30 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		4FBFFE8518A0541B006EC296 /* AMAImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAImageViewCell.h; sourceTree = "<group>"; };
+		4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAImageViewCell.m; sourceTree = "<group>"; };
 		4FDD6E5E161AD05C002E9286 /* AMAImageSearch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AMAImageSearch-Info.plist"; sourceTree = "<group>"; };
 		4FDD6E5F161AD05C002E9286 /* AMAImageSearch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMAImageSearch-Prefix.pch"; sourceTree = "<group>"; };
 		4FDD6E69161ADB3A002E9286 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		4F6B221E189C78A500B49921 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4F6B2221189C78A500B49921 /* ThumbCell.h */,
-				4F6B2222189C78A500B49921 /* ThumbCell.m */,
+				4FBFFE8518A0541B006EC296 /* AMAImageViewCell.h */,
+				4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */,
 			);
 			name = View;
 			path = Classes/View;
@@ -312,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBFFE8718A0541B006EC296 /* AMAImageViewCell.m in Sources */,
 				4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */,
 				4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */,
 				4FB62C9F1613266700B10E30 /* main.m in Sources */,
@@ -321,7 +322,6 @@
 				4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */,
 				4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */,
 				4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */,
-				4F6B2229189C78A500B49921 /* ThumbCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

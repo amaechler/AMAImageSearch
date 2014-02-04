@@ -42,10 +42,6 @@ static NSString * const kAFBingAPIPrimaryAccountKey = @"";
         // Set the authentication header
         [self.requestSerializer setAuthorizationHeaderFieldWithUsername:@""
                                                                password:kAFBingAPIPrimaryAccountKey];
-        
-        // Set the response serializer
-//        self.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
-//        self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/atom+xml", nil];
     }
     return self;
 }

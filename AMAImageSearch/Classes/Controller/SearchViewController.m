@@ -12,33 +12,42 @@
 #import "MBProgressHUD.h"
 
 #import "ImageRecord.h"
-#import "ThumbCell.h"
 #import "ImageSearching.h"
 #import "ImageViewController.h"
 
+#import "AMAImageViewCell.h"
+
+
+static NSString * const ImageCellIdentifier = @"ImageViewCell";
+
+static const int kColumnCountPortrait = 2;
+static const int kColumnCountLandscape = 3;
+static const CGFloat kCellEqualSpacing = 15.0f;
 
 @interface SearchViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 @property (nonatomic, strong) NSMutableArray *images;
+
+@property (nonatomic, assign) CGFloat cellWidth;
+@property (strong, nonatomic) NSArray *cellColors;
 
 @end
 
 
 @implementation SearchViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (void)awakeFromNib
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(onApplicationWillEnterForeground:)
-                                                     name:UIApplicationWillEnterForegroundNotification
-                                                   object:nil];
-    }
-    return self;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onApplicationWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+    
+    self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
+                         [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
 }
 
 - (void)dealloc
@@ -62,44 +71,58 @@
     NSLog(@"Updated search provider to %@", searchProviderString);
 }
 
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
  
-    [self updateTitle];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
+    [self.collectionView registerClass:[AMAImageViewCell class] forCellWithReuseIdentifier:ImageCellIdentifier];
+    
+    CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
+    layout.sectionInset = UIEdgeInsetsMake(0, kCellEqualSpacing, 0, kCellEqualSpacing);
+    layout.verticalItemSpacing = kCellEqualSpacing;
+    //layout.columnCount = kColumnCounting;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Update the title of the search engine
+    [self updateTitle];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self updateLayout];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (NSUInteger)supportedInterfaceOrientations
 {
-    [super viewWillDisappear:animated];
+    return UIInterfaceOrientationMaskAll;
 }
 
-- (void)viewDidDisappear:(BOOL)animated
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
 {
-    [super viewDidDisappear:animated];
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
+                                            duration:duration];
+
+    [self updateLayout];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)updateLayout
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
+    
+    layout.columnCount = (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) ?
+                            kColumnCountPortrait :
+                            kColumnCountLandscape;
+    layout.itemWidth = (self.collectionView.bounds.size.width - (layout.columnCount + 1) * kCellEqualSpacing) / layout.columnCount;
+    NSLog(@"%f", layout.itemWidth);
 }
 
 
@@ -113,49 +136,69 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return [self.images count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ThumbCell";
-	ThumbCell *cell = (ThumbCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[ThumbCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    AMAImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCellIdentifier
+                                                                       forIndexPath:indexPath];
 
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
     
-    cell.imageTitle.text = imageRecord.title;
-    cell.imageURL.text = imageRecord.details;
-
-    [cell.thumbnail setImageWithURL:imageRecord.thumbnailURL placeholderImage:[UIImage imageNamed:@"placeholder"]];
-
+    cell.imageView.backgroundColor = self.cellColors[indexPath.row % [self.cellColors count]];
+    [cell.imageView setImageWithURL:imageRecord.thumbnailURL];
+    
     return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:@"ImageViewSegue" sender:imageRecord];
+    
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if ([segue.identifier isEqualToString:@"CellSegue"]) {
-		ImageViewController *imageViewController = segue.destinationViewController;
-
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-        ImageRecord *imageRecord = [self.images objectAtIndex:path.row];
-
+	if ([segue.identifier isEqualToString:@"ImageViewSegue"]) {
+        NSAssert([sender isKindOfClass:[ImageRecord class]], @"Expected ImageRecord object.");
+        ImageRecord *imageRecord = sender;
+		
+        ImageViewController *imageViewController = segue.destinationViewController;
+        
         imageViewController.title = imageRecord.title;
 		imageViewController.imageURL = imageRecord.imageURL;
 	}
 }
+
+
+#pragma mark - CHTCollectionViewWaterfallLayoutDelagate
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+    layout:(CHTCollectionViewWaterfallLayout *)collectionViewLayout
+    heightForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
+    
+    CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
+
+    return imageRecord.thumbnailSize.height * (layout.itemWidth / imageRecord.thumbnailSize.width);
+}
+
 
 #pragma mark - Search bar delegate
 
@@ -171,7 +214,7 @@
 {
     // Clear the images array and refresh the table view so it's empty
     [self.images removeAllObjects];
-    [self.tableView reloadData];
+    [self.collectionView reloadData];
     
     // Show a loading spinner
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -184,7 +227,7 @@
     [sharedClient findImagesForQuery:self.searchbar.text
          success:^(NSURLSessionDataTask *dataTask, NSArray *imageArray) {
              self.images = [NSMutableArray arrayWithArray:imageArray];
-             [self.tableView reloadData];
+             [self.collectionView reloadData];
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  [MBProgressHUD hideHUDForView:self.view animated:YES];

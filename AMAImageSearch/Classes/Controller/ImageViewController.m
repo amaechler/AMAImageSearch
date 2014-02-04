@@ -28,16 +28,6 @@
 
 @implementation ImageViewController
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        NSLog(@"%@", self);
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
