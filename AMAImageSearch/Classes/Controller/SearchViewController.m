@@ -122,7 +122,6 @@ static const CGFloat kCellEqualSpacing = 15.0f;
                             kColumnCountPortrait :
                             kColumnCountLandscape;
     layout.itemWidth = (self.collectionView.bounds.size.width - (layout.columnCount + 1) * kCellEqualSpacing) / layout.columnCount;
-    NSLog(@"%f", layout.itemWidth);
 }
 
 
@@ -156,6 +155,11 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     
     cell.imageView.backgroundColor = self.cellColors[indexPath.row % [self.cellColors count]];
     [cell.imageView setImageWithURL:imageRecord.thumbnailURL];
+    
+    // Check if this has been the last item, if so start loading more images...
+    if (indexPath.row == [self.images count] - 1) {
+        [self loadImagesWithOffset:[self.images count]];
+    };
     
     return cell;
 }
@@ -207,30 +211,43 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     // Dismiss the keyboard
     [searchBar resignFirstResponder];
     
-    [self loadImages];
+    [self loadImagesWithOffset:0];
 }
 
-- (void)loadImages
+- (id<ImageSearching>)activeSearchClient
 {
-    // Clear the images array and refresh the table view so it's empty
-    [self.images removeAllObjects];
-    [self.collectionView reloadData];
-    
-    // Show a loading spinner
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
     id<ImageSearching> sharedClient = [NSClassFromString(searchProviderString) sharedClient];
     NSAssert(sharedClient, @"Invalid class string from settings encountered");
     
-    NSLog(@"Using class %@ for searching images...", searchProviderString);
-    [sharedClient findImagesForQuery:self.searchbar.text
+    return sharedClient;
+}
+
+- (void)loadImagesWithOffset:(int)offset
+{
+    if (offset == 0) {
+        // Clear the images array and refresh the table view so it's empty
+        [self.images removeAllObjects];
+        [self.collectionView reloadData];
+        
+        // Show a loading spinner
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    
+    [[self activeSearchClient] findImagesForQuery:self.searchbar.text withOffset:offset
          success:^(NSURLSessionDataTask *dataTask, NSArray *imageArray) {
-             self.images = [NSMutableArray arrayWithArray:imageArray];
+             if (offset == 0) {
+                 self.images = [NSMutableArray arrayWithArray:imageArray];
+             } else {
+                 [self.images addObjectsFromArray:imageArray];
+             }
+             
              [self.collectionView reloadData];
              
              dispatch_async(dispatch_get_main_queue(), ^{
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 if (offset == 0) {
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 }
              });
          }
          failure:^(NSURLSessionDataTask *dataTask, NSError *error) {

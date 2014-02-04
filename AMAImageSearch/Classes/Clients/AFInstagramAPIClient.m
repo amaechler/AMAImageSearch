@@ -17,6 +17,13 @@ static NSString * const kAFInstagramAPIBaseURLString = @"https://api.instagram.c
 static NSString * const kAFInstagramAPIClientID = @"";
 
 
+@interface AFInstagramAPIClient ()
+
+@property (strong, nonatomic) NSString *max_id;
+
+@end
+
+
 @implementation AFInstagramAPIClient
 
 + (NSString *)title
@@ -35,9 +42,12 @@ static NSString * const kAFInstagramAPIClientID = @"";
     return _sharedClient;
 }
 
-- (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
+- (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
 {
-    NSDictionary *parameterDict = [NSDictionary dictionaryWithObject:kAFInstagramAPIClientID forKey:@"client_id"];
+    NSMutableDictionary *parameterDict = [NSMutableDictionary dictionaryWithDictionary:@{ @"client_id": kAFInstagramAPIClientID }];
+    if (self.max_id != nil) {
+        parameterDict[@"max_id"] = self.max_id;
+    }
 
     // Only allow alpha-numeric characters
     NSCharacterSet *charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
@@ -48,6 +58,8 @@ static NSString * const kAFInstagramAPIClientID = @"";
         success:^(NSURLSessionDataTask *operation, id responseObject) {
             NSArray *jsonObjects = [responseObject objectForKey:@"data"];
             NSLog(@"Found %d objects...", [jsonObjects count]);
+            
+            self.max_id = [responseObject valueForKeyPath:@"pagination.next_max_tag_id"];
             
             NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:jsonObjects.count];
             for (NSDictionary *jsonDict in jsonObjects) {

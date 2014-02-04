@@ -33,12 +33,11 @@ static NSString * const kAFTumblrAPIKey = @"";
     return _sharedClient;
 }
 
-- (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
+- (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
 {
-    NSDictionary *parameterDict = @{ @"api_key": kAFTumblrAPIKey };
+    NSDictionary *parameterDict = @{ @"api_key": kAFTumblrAPIKey, @"offset": [@(offset) stringValue] };
 
-    NSString *path = [NSString stringWithFormat:@"photo"];
-    [[AFUnsplashAPIClient sharedClient] GET:path parameters:parameterDict
+    [[AFUnsplashAPIClient sharedClient] GET:@"photo" parameters:parameterDict
         success:^(NSURLSessionDataTask *operation, id responseObject) {
             NSArray *jsonObjects = [responseObject valueForKeyPath:@"response.posts"];
             NSLog(@"Found %d objects...", [jsonObjects count]);

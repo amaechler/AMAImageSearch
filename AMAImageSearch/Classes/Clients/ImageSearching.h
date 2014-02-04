@@ -17,6 +17,6 @@ typedef void (^ISFailureBlock)(NSURLSessionDataTask *, NSError *);
 + (NSString *)title;
 
 + (id)sharedClient;
-- (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure;
+- (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure;
 
 @end

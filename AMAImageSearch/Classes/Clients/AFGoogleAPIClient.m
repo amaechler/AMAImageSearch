@@ -33,15 +33,16 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
     return _sharedClient;
 }
 
-- (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
+- (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
 {
-    NSMutableDictionary *parameterDict = [NSMutableDictionary dictionaryWithCapacity:3];
-    [parameterDict setObject:@"1.0" forKey:@"v"];
-    [parameterDict setObject:@"8" forKey:@"rsz"];
-    [parameterDict setObject:query forKey:@"q"];
+    NSDictionary *parameterDict = @{ @"v": @"1.0", @"rsz": @"8", @"start": [@(offset) stringValue], @"q": query };
     
     [[AFGoogleAPIClient sharedClient] GET:@"ajax/services/search/images" parameters:parameterDict
         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
+            if ([responseObject objectForKey:@"responseData"] == [NSNull null]) {
+                return;
+            }
+            
             NSArray *jsonObjects = [[responseObject objectForKey:@"responseData"] objectForKey:@"results"];
             NSLog(@"Found %d objects...", [jsonObjects count]);
             

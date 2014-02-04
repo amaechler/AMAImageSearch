@@ -47,10 +47,11 @@ static NSString * const kAFBingAPIPrimaryAccountKey = @"";
 }
 
 
-- (void)findImagesForQuery:(NSString *)query success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
+- (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
 {
     NSDictionary *parameterDict = @{ @"Query": [NSString stringWithFormat:@"'%@'", query],
-                                     @"$format": @"JSON" };
+                                     @"$format": @"JSON",
+                                     @"$skip": [@(offset) stringValue] };
     
     [[AFBingAPIClient sharedClient] GET:@"Image" parameters:parameterDict
         success:^(NSURLSessionDataTask *operation, id responseObject) {
