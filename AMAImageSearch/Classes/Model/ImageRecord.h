@@ -12,7 +12,11 @@
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *details;
+
 @property (nonatomic, strong) NSURL *thumbnailURL;
+@property (nonatomic, assign) CGSize thumbnailSize;
+
 @property (nonatomic, strong) NSURL *imageURL;
+@property (nonatomic, assign) CGSize imageSize;
 
 @end

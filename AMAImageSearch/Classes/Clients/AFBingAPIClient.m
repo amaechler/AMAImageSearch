@@ -76,7 +76,11 @@ static NSString * const kAFBingAPIPrimaryAccountKey = @"";
                 }
                 
                 imageRecord.thumbnailURL = [NSURL URLWithString:[jsonDict valueForKeyPath:@"Thumbnail.MediaUrl"]];
+                imageRecord.thumbnailSize = CGSizeMake([[jsonDict valueForKeyPath:@"Thumbnail.Width"] floatValue],
+                                                       [[jsonDict valueForKeyPath:@"Thumbnail.Height"] floatValue]);
                 imageRecord.imageURL = [NSURL URLWithString:[jsonDict valueForKeyPath:@"MediaUrl"]];
+                imageRecord.imageSize = CGSizeMake([[jsonDict valueForKeyPath:@"Width"] floatValue],
+                                                   [[jsonDict valueForKeyPath:@"Height"] floatValue]);
                 
                 [imageArray addObject:imageRecord];
             }

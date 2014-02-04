@@ -51,8 +51,14 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
                 
                 imageRecord.title = [jsonDict objectForKey:@"contentNoFormatting"];
                 imageRecord.details = [jsonDict objectForKey:@"originalContextUrl"];
+                
                 imageRecord.thumbnailURL = [NSURL URLWithString:[jsonDict objectForKey:@"tbUrl"]];
+                imageRecord.thumbnailSize = CGSizeMake([[jsonDict valueForKeyPath:@"tbWidth"] floatValue],
+                                                       [[jsonDict valueForKeyPath:@"tbHeight"] floatValue]);
+
                 imageRecord.imageURL = [NSURL URLWithString:[jsonDict objectForKey:@"url"]];
+                imageRecord.imageSize = CGSizeMake([[jsonDict valueForKeyPath:@"width"] floatValue],
+                                                       [[jsonDict valueForKeyPath:@"height"] floatValue]);
                 
                 [imageArray addObject:imageRecord];
             }

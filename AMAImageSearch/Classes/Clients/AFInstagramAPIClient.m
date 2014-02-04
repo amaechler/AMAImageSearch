@@ -68,7 +68,12 @@ static NSString * const kAFInstagramAPIClientID = @"";
                 }
                 
                 imageRecord.thumbnailURL = [NSURL URLWithString:[jsonDict valueForKeyPath:@"images.thumbnail.url"]];
+                imageRecord.thumbnailSize = CGSizeMake([[jsonDict valueForKeyPath:@"images.thumbnail.width"] floatValue],
+                                                       [[jsonDict valueForKeyPath:@"images.thumbnail.height"] floatValue]);
+
                 imageRecord.imageURL = [NSURL URLWithString:[jsonDict valueForKeyPath:@"images.standard_resolution.url"]];
+                imageRecord.imageSize = CGSizeMake([[jsonDict valueForKeyPath:@"images.standard_resolution.width"] floatValue],
+                                                   [[jsonDict valueForKeyPath:@"images.standard_resolution.height"] floatValue]);
                 
                 [imageArray addObject:imageRecord];
             }

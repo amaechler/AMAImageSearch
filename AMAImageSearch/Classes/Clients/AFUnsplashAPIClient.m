@@ -61,14 +61,21 @@ static NSString * const kAFTumblrAPIKey = @"";
                 if (altSizes == nil || [altSizes count] < 1) {
                     continue;
                 }
-                imageRecord.thumbnailURL = [NSURL URLWithString:[altSizes.lastObject valueForKeyPath:@"url"]];
                 
-                NSArray *originalURL = [jsonDict valueForKeyPath:@"photos.original_size.url"];
-                if (originalURL == nil || [originalURL count] < 1) {
+                id thumbnailPhoto = ([altSizes count] > 1) ? altSizes[altSizes.count - 2] : [altSizes lastObject];
+                imageRecord.thumbnailURL = [NSURL URLWithString:[thumbnailPhoto valueForKeyPath:@"url"]];
+                imageRecord.thumbnailSize = CGSizeMake([[thumbnailPhoto valueForKeyPath:@"width"] floatValue],
+                                                       [[thumbnailPhoto valueForKeyPath:@"height"] floatValue]);
+                
+                id originalPhoto = [[jsonDict valueForKeyPath:@"photos.original_size"] firstObject];
+                if (originalPhoto == nil) {
                     continue;
                 }
-                imageRecord.imageURL = [NSURL URLWithString:originalURL[0]];
-                
+
+                imageRecord.imageURL = [NSURL URLWithString:[originalPhoto valueForKeyPath:@"url"]];
+                imageRecord.imageSize = CGSizeMake([[originalPhoto valueForKeyPath:@"width"] floatValue],
+                                                   [[originalPhoto valueForKeyPath:@"height"] floatValue]);
+
                 [imageArray addObject:imageRecord];
             }
             
