@@ -22,8 +22,12 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - CHTCollectionViewWaterfallLayout (~> 0.1)
+  - CHTCollectionViewWaterfallLayout (from `https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git`)
   - MBProgressHUD (~> 0.8)
+
+EXTERNAL SOURCES:
+  CHTCollectionViewWaterfallLayout:
+    :git: https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
