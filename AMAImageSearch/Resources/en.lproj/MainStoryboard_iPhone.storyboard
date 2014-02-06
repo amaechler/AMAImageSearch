@@ -174,7 +174,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bing_search.jpeg" id="6ET-Rm-BvX">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bing_search.jpg" id="6ET-Rm-BvX">
                                             <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -221,7 +221,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bing_search.jpeg" width="225" height="225"/>
+        <image name="bing_search.jpg" width="225" height="225"/>
         <image name="reveal-icon.png" width="22" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
