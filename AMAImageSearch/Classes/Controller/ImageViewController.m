@@ -40,6 +40,8 @@
 
     // Setup the scrollview
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
+    self.scrollView.alwaysBounceHorizontal = YES;
+    self.scrollView.alwaysBounceVertical = YES;
     
     // Show a loading spinner
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
