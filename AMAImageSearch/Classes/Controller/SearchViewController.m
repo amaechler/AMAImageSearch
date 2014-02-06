@@ -10,6 +10,7 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "SWRevealViewController.h"
 
 #import "ImageRecord.h"
 #import "ImageSearching.h"
@@ -28,6 +29,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 
 @property (nonatomic, strong) NSMutableArray *images;
 
@@ -77,6 +79,11 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Add "hamburger" button for reveal view controller.
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
  
     [self.collectionView registerClass:[AMAImageViewCell class] forCellWithReuseIdentifier:ImageCellIdentifier];
     
@@ -222,6 +229,14 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     
     return sharedClient;
 }
+
+#pragma mark - Implement Search image protocol
+- (void)searchImage
+{
+    [self updateTitle];
+    [self loadImagesWithOffset:0]; // reset offset if search engine is changed
+}
+
 
 - (void)loadImagesWithOffset:(int)offset
 {

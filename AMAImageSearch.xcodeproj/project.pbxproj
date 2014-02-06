@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8AA18A42160000FEB69 /* MenuViewController.m */; };
+		1633F8AE18A4216F000FEB69 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8AD18A4216F000FEB69 /* MenuItem.m */; };
+		1633F8B118A4217D000FEB69 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8B018A4217D000FEB69 /* MenuCell.m */; };
+		1633F8C318A43204000FEB69 /* bing_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8BE18A43204000FEB69 /* bing_search.jpg */; };
+		1633F8C418A43204000FEB69 /* google_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8BF18A43204000FEB69 /* google_search.jpg */; };
+		1633F8C518A43204000FEB69 /* instagram_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C018A43204000FEB69 /* instagram_search.jpg */; };
+		1633F8C618A43204000FEB69 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C118A43204000FEB69 /* reveal-icon.png */; };
+		1633F8C718A43204000FEB69 /* unsplash_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C218A43204000FEB69 /* unsplash_search.jpg */; };
 		4F62BA4E189888590024AECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F62BA4D189888590024AECE /* Images.xcassets */; };
 		4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */; };
 		4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2214189C78A500B49921 /* AFInstagramAPIClient.m */; };
@@ -32,6 +40,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1633F8A918A42160000FEB69 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		1633F8AA18A42160000FEB69 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		1633F8AC18A4216F000FEB69 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		1633F8AD18A4216F000FEB69 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		1633F8AF18A4217D000FEB69 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		1633F8B018A4217D000FEB69 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		1633F8BE18A43204000FEB69 /* bing_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bing_search.jpg; sourceTree = "<group>"; };
+		1633F8BF18A43204000FEB69 /* google_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = google_search.jpg; sourceTree = "<group>"; };
+		1633F8C018A43204000FEB69 /* instagram_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = instagram_search.jpg; sourceTree = "<group>"; };
+		1633F8C118A43204000FEB69 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
+		1633F8C218A43204000FEB69 /* unsplash_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unsplash_search.jpg; sourceTree = "<group>"; };
 		4F62BA4D189888590024AECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
@@ -89,6 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1633F8BD18A43204000FEB69 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				1633F8BE18A43204000FEB69 /* bing_search.jpg */,
+				1633F8BF18A43204000FEB69 /* google_search.jpg */,
+				1633F8C018A43204000FEB69 /* instagram_search.jpg */,
+				1633F8C118A43204000FEB69 /* reveal-icon.png */,
+				1633F8C218A43204000FEB69 /* unsplash_search.jpg */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		4F6B2210189C78A500B49921 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +140,8 @@
 		4F6B2216189C78A500B49921 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8A918A42160000FEB69 /* MenuViewController.h */,
+				1633F8AA18A42160000FEB69 /* MenuViewController.m */,
 				4F6B2217189C78A500B49921 /* ImageViewController.h */,
 				4F6B2218189C78A500B49921 /* ImageViewController.m */,
 				4F6B2219189C78A500B49921 /* SearchViewController.h */,
@@ -121,6 +154,8 @@
 		4F6B221B189C78A500B49921 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8AC18A4216F000FEB69 /* MenuItem.h */,
+				1633F8AD18A4216F000FEB69 /* MenuItem.m */,
 				4F6B221C189C78A500B49921 /* ImageRecord.h */,
 				4F6B221D189C78A500B49921 /* ImageRecord.m */,
 			);
@@ -131,6 +166,8 @@
 		4F6B221E189C78A500B49921 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8AF18A4217D000FEB69 /* MenuCell.h */,
+				1633F8B018A4217D000FEB69 /* MenuCell.m */,
 				4FBFFE8518A0541B006EC296 /* AMAImageViewCell.h */,
 				4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */,
 			);
@@ -199,6 +236,7 @@
 		4FB62CF2161327EB00B10E30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8BD18A43204000FEB69 /* Icons */,
 				4F62BA4D189888590024AECE /* Images.xcassets */,
 				4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */,
 				4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */,
@@ -262,9 +300,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB62D00161327EB00B10E30 /* MainStoryboard_iPad.storyboard in Resources */,
+				1633F8C318A43204000FEB69 /* bing_search.jpg in Resources */,
+				1633F8C418A43204000FEB69 /* google_search.jpg in Resources */,
 				4FB62D01161327EB00B10E30 /* MainStoryboard_iPhone.storyboard in Resources */,
+				1633F8C718A43204000FEB69 /* unsplash_search.jpg in Resources */,
 				4F62BA4E189888590024AECE /* Images.xcassets in Resources */,
 				4FDD6E6A161ADB3A002E9286 /* Settings.bundle in Resources */,
+				1633F8C518A43204000FEB69 /* instagram_search.jpg in Resources */,
+				1633F8C618A43204000FEB69 /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +359,10 @@
 				4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */,
 				4F6B2226189C78A500B49921 /* SearchViewController.m in Sources */,
 				4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */,
+				1633F8B118A4217D000FEB69 /* MenuCell.m in Sources */,
 				4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */,
+				1633F8AE18A4216F000FEB69 /* MenuItem.m in Sources */,
+				1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */,
 				4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

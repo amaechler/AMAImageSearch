@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ngm-lX-Py9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c2v-sD-eRX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Search View Controller - SearchAPI-->
@@ -64,9 +64,12 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="SearchAPI" id="ZFI-Ew-g3H"/>
+                    <navigationItem key="navigationItem" title="SearchAPI" id="ZFI-Ew-g3H">
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon.png" id="ixj-bG-5GM"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Y7C-U5-KHs" id="5dC-dX-DuP"/>
+                        <outlet property="revealButtonItem" destination="ixj-bG-5GM" id="AH5-KW-ccX"/>
                         <outlet property="searchbar" destination="EAB-ms-sAn" id="8R2-Mb-KCG"/>
                     </connections>
                 </viewController>
@@ -148,7 +151,79 @@
             </objects>
             <point key="canvasLocation" x="-145" y="19"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="2Pu-qV-5M3">
+            <objects>
+                <tableViewController id="EXy-m3-nOD" customClass="MenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dV7-Ac-tee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="menuItemCell" textLabel="x6L-v4-0C1" imageView="6ET-Rm-BvX" style="IBUITableViewCellStyleDefault" id="WOg-CM-m3p" customClass="MenuCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WOg-CM-m3p" id="yVA-5s-WUy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Search Menu Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x6L-v4-0C1">
+                                            <rect key="frame" x="73" y="0.0" width="232" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bing_search.jpeg" id="6ET-Rm-BvX">
+                                            <rect key="frame" x="15" y="0.0" width="43" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="searchMenuImageView" destination="6ET-Rm-BvX" id="Gcz-rn-NFa"/>
+                                    <outlet property="searchMenuTextLabel" destination="x6L-v4-0C1" id="txi-Lt-9Zs"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="EXy-m3-nOD" id="uTq-Kv-F43"/>
+                            <outlet property="delegate" destination="EXy-m3-nOD" id="fxp-1j-o3Y"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypc-T2-Etv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147" y="-712"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="QxP-UO-w0f">
+            <objects>
+                <viewController id="c2v-sD-eRX" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xHH-bg-iyU"/>
+                        <viewControllerLayoutGuide type="bottom" id="05h-gl-kSa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WkH-Bg-FaU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="EXy-m3-nOD" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="q3U-aO-SGk"/>
+                        <segue destination="ngm-lX-Py9" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="FJZ-63-V3w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZx-Co-tNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-669" y="-348"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="bing_search.jpeg" width="225" height="225"/>
+        <image name="reveal-icon.png" width="22" height="17"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
