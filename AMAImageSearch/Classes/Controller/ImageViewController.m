@@ -36,6 +36,8 @@
         return;
     }
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     // Setup the scrollview
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
     
