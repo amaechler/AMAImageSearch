@@ -234,15 +234,17 @@ static const CGFloat kCellEqualSpacing = 15.0f;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     
+    __weak SearchViewController *weakSelf = self;
+
     [[self activeSearchClient] findImagesForQuery:self.searchbar.text withOffset:offset
          success:^(NSURLSessionDataTask *dataTask, NSArray *imageArray) {
              if (offset == 0) {
-                 self.images = [NSMutableArray arrayWithArray:imageArray];
+                 weakSelf.images = [NSMutableArray arrayWithArray:imageArray];
              } else {
-                 [self.images addObjectsFromArray:imageArray];
+                 [weakSelf.images addObjectsFromArray:imageArray];
              }
              
-             [self.collectionView reloadData];
+             [weakSelf.collectionView reloadData];
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  if (offset == 0) {
@@ -252,6 +254,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
          }
          failure:^(NSURLSessionDataTask *dataTask, NSError *error) {
              NSLog(@"An error occured while searching for images, %@", [error description]);
+             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
          }
      ];
 }
