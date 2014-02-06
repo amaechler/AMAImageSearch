@@ -15,6 +15,7 @@
 		1633F8C518A43204000FEB69 /* instagram_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C018A43204000FEB69 /* instagram_search.jpg */; };
 		1633F8C618A43204000FEB69 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C118A43204000FEB69 /* reveal-icon.png */; };
 		1633F8C718A43204000FEB69 /* unsplash_search.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1633F8C218A43204000FEB69 /* unsplash_search.jpg */; };
+		1633F8C918A44A42000FEB69 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1633F8C818A44A42000FEB69 /* FacebookSDK.framework */; };
 		4F62BA4E189888590024AECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F62BA4D189888590024AECE /* Images.xcassets */; };
 		4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */; };
 		4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2214189C78A500B49921 /* AFInstagramAPIClient.m */; };
@@ -51,6 +52,7 @@
 		1633F8C018A43204000FEB69 /* instagram_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = instagram_search.jpg; sourceTree = "<group>"; };
 		1633F8C118A43204000FEB69 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		1633F8C218A43204000FEB69 /* unsplash_search.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unsplash_search.jpg; sourceTree = "<group>"; };
+		1633F8C818A44A42000FEB69 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		4F62BA4D189888590024AECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				4FDF68301613310400757BFB /* SystemConfiguration.framework in Frameworks */,
 				4FDF682E161330FE00757BFB /* CFNetwork.framework in Frameworks */,
 				4FB62C931613266700B10E30 /* UIKit.framework in Frameworks */,
+				1633F8C918A44A42000FEB69 /* FacebookSDK.framework in Frameworks */,
 				4FB62C951613266700B10E30 /* Foundation.framework in Frameworks */,
 				4FB62C971613266700B10E30 /* CoreGraphics.framework in Frameworks */,
 				93AF60A5ED5D408AAA2992E4 /* libPods.a in Frameworks */,
@@ -197,6 +200,7 @@
 		4FB62C911613266700B10E30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8C818A44A42000FEB69 /* FacebookSDK.framework */,
 				4FDF682D161330FE00757BFB /* CFNetwork.framework */,
 				4FB62C961613266700B10E30 /* CoreGraphics.framework */,
 				4F72FEE91613499900735BE3 /* CoreText.framework */,
@@ -452,6 +456,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/hsin-yiberg/Documents/FacebookSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
@@ -467,6 +475,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/hsin-yiberg/Documents/FacebookSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
