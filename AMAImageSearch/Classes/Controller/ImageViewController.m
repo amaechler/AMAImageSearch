@@ -57,8 +57,9 @@
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             // Set the image
             weakSelf.imageView.image = image;
-            
+
             [self updateZoom];
+            [self updateConstraints];
 
             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         }
