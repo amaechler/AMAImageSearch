@@ -15,7 +15,6 @@
 		4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B221D189C78A500B49921 /* ImageRecord.m */; };
 		4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222B189C795700B49921 /* AFBingAPIClient.m */; };
 		4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B222F189C795700B49921 /* AFUnsplashAPIClient.m */; };
-		4F71C6F6161A33FE005909AB /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F71C6F5161A33FE005909AB /* placeholder.png */; };
 		4F72FEEA1613499900735BE3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F72FEE91613499900735BE3 /* CoreText.framework */; };
 		4FB62C931613266700B10E30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB62C921613266700B10E30 /* UIKit.framework */; };
 		4FB62C951613266700B10E30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB62C941613266700B10E30 /* Foundation.framework */; };
@@ -33,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F62BA4D189888590024AECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
+		4F62BA4D189888590024AECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
 		4F6B2213189C78A500B49921 /* AFInstagramAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFInstagramAPIClient.h; sourceTree = "<group>"; };
@@ -49,7 +48,6 @@
 		4F6B222B189C795700B49921 /* AFBingAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFBingAPIClient.m; sourceTree = "<group>"; };
 		4F6B222E189C795700B49921 /* AFUnsplashAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUnsplashAPIClient.h; sourceTree = "<group>"; };
 		4F6B222F189C795700B49921 /* AFUnsplashAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUnsplashAPIClient.m; sourceTree = "<group>"; };
-		4F71C6F5161A33FE005909AB /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		4F72FEE91613499900735BE3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		4FB62C8E1613266700B10E30 /* AMAImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMAImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FB62C921613266700B10E30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				4F62BA4D189888590024AECE /* Images.xcassets */,
-				4F71C6F5161A33FE005909AB /* placeholder.png */,
 				4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */,
 				4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */,
 				4FDD6E69161ADB3A002E9286 /* Settings.bundle */,
@@ -266,7 +263,6 @@
 			files = (
 				4FB62D00161327EB00B10E30 /* MainStoryboard_iPad.storyboard in Resources */,
 				4FB62D01161327EB00B10E30 /* MainStoryboard_iPhone.storyboard in Resources */,
-				4F71C6F6161A33FE005909AB /* placeholder.png in Resources */,
 				4F62BA4E189888590024AECE /* Images.xcassets in Resources */,
 				4FDD6E6A161ADB3A002E9286 /* Settings.bundle in Resources */,
 			);
