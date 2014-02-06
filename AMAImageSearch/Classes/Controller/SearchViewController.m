@@ -10,9 +10,9 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "SWRevealViewController.h"
 
 #import "ImageRecord.h"
-#import "ImageSearching.h"
 #import "ImageViewController.h"
 
 #import "AMAImageViewCell.h"
@@ -28,6 +28,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 
 @property (nonatomic, strong) NSMutableArray *images;
 
@@ -63,20 +64,17 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)updateTitle
-{
-    NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
-    self.title = [NSClassFromString(searchProviderString) title];;
-    
-    NSLog(@"Updated search provider to %@", searchProviderString);
-}
-
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Add "hamburger" button for reveal view controller.
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
  
     [self.collectionView registerClass:[AMAImageViewCell class] forCellWithReuseIdentifier:ImageCellIdentifier];
     
@@ -214,6 +212,17 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     [self loadImagesWithOffset:0];
 }
 
+
+#pragma mark -
+
+- (void)updateTitle
+{
+    NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
+    self.title = [NSClassFromString(searchProviderString) title];;
+    
+    NSLog(@"Updated search provider to %@", searchProviderString);
+}
+
 - (id<ImageSearching>)activeSearchClient
 {
     NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
@@ -225,6 +234,11 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 - (void)loadImagesWithOffset:(int)offset
 {
+    // Do not allow empty searches
+    if ([self.searchbar.text isEqual:@""]) {
+        return;
+    }
+    
     if (offset == 0) {
         // Clear the images array and refresh the table view so it's empty
         [self.images removeAllObjects];
@@ -247,13 +261,13 @@ static const CGFloat kCellEqualSpacing = 15.0f;
              [weakSelf.collectionView reloadData];
              
              dispatch_async(dispatch_get_main_queue(), ^{
-                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 [MBProgressHUD hideHUDForView:self.view animated:YES];
              });
          }
          failure:^(NSURLSessionDataTask *dataTask, NSError *error) {
              NSLog(@"An error occured while searching for images, %@", [error description]);
              dispatch_async(dispatch_get_main_queue(), ^{
-             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+                 [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
              });
          }
      ];

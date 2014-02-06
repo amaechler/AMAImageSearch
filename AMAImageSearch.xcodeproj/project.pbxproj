@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F62BA4E189888590024AECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F62BA4D189888590024AECE /* Images.xcassets */; };
+		1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8AA18A42160000FEB69 /* MenuViewController.m */; };
+		4F1D50B118A572A30077EE0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D50B018A572A30077EE0E /* Images.xcassets */; };
+		4F62BA4E189888590024AECE /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */; };
 		4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2214189C78A500B49921 /* AFInstagramAPIClient.m */; };
 		4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2218189C78A500B49921 /* ImageViewController.m */; };
@@ -20,11 +22,9 @@
 		4FB62C951613266700B10E30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB62C941613266700B10E30 /* Foundation.framework */; };
 		4FB62C971613266700B10E30 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB62C961613266700B10E30 /* CoreGraphics.framework */; };
 		4FB62C9F1613266700B10E30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB62C9E1613266700B10E30 /* main.m */; };
-		4FB62D00161327EB00B10E30 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */; };
-		4FB62D01161327EB00B10E30 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */; };
+		4FB62D01161327EB00B10E30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB62CFA161327EB00B10E30 /* Main.storyboard */; };
 		4FB62D08161327F200B10E30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB62D05161327F200B10E30 /* AppDelegate.m */; };
 		4FBFFE8718A0541B006EC296 /* AMAImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */; };
-		4FDD6E6A161ADB3A002E9286 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4FDD6E69161ADB3A002E9286 /* Settings.bundle */; };
 		4FDF682E161330FE00757BFB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDF682D161330FE00757BFB /* CFNetwork.framework */; };
 		4FDF68301613310400757BFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDF682F1613310400757BFB /* SystemConfiguration.framework */; };
 		4FDF68321613310800757BFB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDF68311613310800757BFB /* Security.framework */; };
@@ -32,7 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F62BA4D189888590024AECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1633F8A918A42160000FEB69 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		1633F8AA18A42160000FEB69 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		4F1D50B018A572A30077EE0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
 		4F6B2213189C78A500B49921 /* AFInstagramAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFInstagramAPIClient.h; sourceTree = "<group>"; };
@@ -54,15 +56,13 @@
 		4FB62C941613266700B10E30 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FB62C961613266700B10E30 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4FB62C9E1613266700B10E30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4FB62CF9161327EB00B10E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		4FB62CFB161327EB00B10E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4FB62CFB161327EB00B10E30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FB62D04161327F200B10E30 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		4FB62D05161327F200B10E30 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		4FBFFE8518A0541B006EC296 /* AMAImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAImageViewCell.h; sourceTree = "<group>"; };
 		4FBFFE8618A0541B006EC296 /* AMAImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAImageViewCell.m; sourceTree = "<group>"; };
 		4FDD6E5E161AD05C002E9286 /* AMAImageSearch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AMAImageSearch-Info.plist"; sourceTree = "<group>"; };
 		4FDD6E5F161AD05C002E9286 /* AMAImageSearch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMAImageSearch-Prefix.pch"; sourceTree = "<group>"; };
-		4FDD6E69161ADB3A002E9286 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4FDF682D161330FE00757BFB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4FDF682F1613310400757BFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4FDF68311613310800757BFB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -109,6 +109,8 @@
 		4F6B2216189C78A500B49921 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1633F8A918A42160000FEB69 /* MenuViewController.h */,
+				1633F8AA18A42160000FEB69 /* MenuViewController.m */,
 				4F6B2217189C78A500B49921 /* ImageViewController.h */,
 				4F6B2218189C78A500B49921 /* ImageViewController.m */,
 				4F6B2219189C78A500B49921 /* SearchViewController.h */,
@@ -199,10 +201,8 @@
 		4FB62CF2161327EB00B10E30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4F62BA4D189888590024AECE /* Images.xcassets */,
-				4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */,
-				4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */,
-				4FDD6E69161ADB3A002E9286 /* Settings.bundle */,
+				4F1D50B018A572A30077EE0E /* Images.xcassets */,
+				4FB62CFA161327EB00B10E30 /* Main.storyboard */,
 			);
 			name = Resources;
 			path = AMAImageSearch/Resources;
@@ -261,10 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB62D00161327EB00B10E30 /* MainStoryboard_iPad.storyboard in Resources */,
-				4FB62D01161327EB00B10E30 /* MainStoryboard_iPhone.storyboard in Resources */,
-				4F62BA4E189888590024AECE /* Images.xcassets in Resources */,
-				4FDD6E6A161ADB3A002E9286 /* Settings.bundle in Resources */,
+				4F62BA4E189888590024AECE /* (null) in Resources */,
+				4F1D50B118A572A30077EE0E /* Images.xcassets in Resources */,
+				4FB62D01161327EB00B10E30 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +316,7 @@
 				4F6B2226189C78A500B49921 /* SearchViewController.m in Sources */,
 				4F6B2232189C795700B49921 /* AFUnsplashAPIClient.m in Sources */,
 				4F6B2224189C78A500B49921 /* AFInstagramAPIClient.m in Sources */,
+				1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */,
 				4F6B2227189C78A500B49921 /* ImageRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,20 +324,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4FB62CF8161327EB00B10E30 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4FB62CF9161327EB00B10E30 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		4FB62CFA161327EB00B10E30 /* MainStoryboard_iPhone.storyboard */ = {
+		4FB62CFA161327EB00B10E30 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4FB62CFB161327EB00B10E30 /* en */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -410,6 +402,7 @@
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,6 +418,7 @@
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

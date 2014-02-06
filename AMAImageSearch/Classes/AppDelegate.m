@@ -13,9 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Register the preference defaults early.
-    NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:@"AFGoogleAPIClient" forKey:@"search_provider"];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-    NSLog(@"Standard user defaults registered.");
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFGoogleAPIClient" }];
     
     return YES;
 }

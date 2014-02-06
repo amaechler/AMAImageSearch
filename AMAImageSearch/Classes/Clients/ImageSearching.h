@@ -1,5 +1,5 @@
 //
-//  ImageSearchProtocol.h
+//  ImageSearching.h
 //  AMAImageSearch
 //
 //  Created by Andreas Maechler on 01.10.12.
