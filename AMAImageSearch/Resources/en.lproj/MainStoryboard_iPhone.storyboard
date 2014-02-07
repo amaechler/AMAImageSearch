@@ -118,6 +118,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Image Name" id="hv5-yG-TnJ">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Jfb-O1-Uzv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="gnA-um-wGc">
+                            <connections>
+                                <action selector="shareOnFacebook:" destination="aP3-7g-3x4" id="1FN-Fr-BZc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="constraintBottom" destination="XRh-sh-wpu" id="7g5-6r-Ahp"/>

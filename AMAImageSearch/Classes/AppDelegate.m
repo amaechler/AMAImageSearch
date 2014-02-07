@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 amaechler. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
+
 #import "AppDelegate.h"
 
 @implementation AppDelegate
@@ -45,6 +47,50 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    BOOL urlWasHandled = [FBAppCall handleOpenURL:url
+                                sourceApplication:sourceApplication
+                                  fallbackHandler:^(FBAppCall *call) {
+                                      NSLog(@"Unhandled deep link: %@", url);
+                                      // Parse the incoming URL to look for a target_url parameter
+                                      NSString *query = [url fragment];
+                                      if (!query) {
+                                          query = [url query];
+                                      }
+                                      NSDictionary *params = [self parseURLParams:query];
+                                      // Check if target URL exists
+                                      NSString *targetURLString = [params valueForKey:@"target_url"];
+                                      if (targetURLString) {
+                                          // Show the incoming link in an alert
+                                          // Your code to direct the user to the appropriate flow within your app goes here
+                                          [[[UIAlertView alloc] initWithTitle:@"Received link:"
+                                                                      message:targetURLString
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil] show];
+                                      }
+                                  }];
+    
+    return urlWasHandled;
+}
+
+// A function for parsing URL parameters
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val = [[kv objectAtIndex:1]
+                         stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [params setObject:val forKey:[kv objectAtIndex:0]];
+    }
+    return params;
 }
 
 @end
