@@ -18,12 +18,16 @@ PODS:
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
   - CHTCollectionViewWaterfallLayout (0.5)
+  - Facebook-iOS-SDK (3.12.0)
   - MBProgressHUD (0.8)
+  - SWRevealViewController (1.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CHTCollectionViewWaterfallLayout (from `https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git`)
+  - Facebook-iOS-SDK (~> 3.12.0)
   - MBProgressHUD (~> 0.8)
+  - SWRevealViewController (~> 1.0)
 
 EXTERNAL SOURCES:
   CHTCollectionViewWaterfallLayout:
@@ -32,6 +36,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   CHTCollectionViewWaterfallLayout: 7f263afec3801ba93538e9524ba79ec0b96c8d64
+  Facebook-iOS-SDK: c09f7d80db5c48170ff834bc03ebe774c49d1f5b
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  SWRevealViewController: de412df00a42c2f90fde7f300de05c29e0cb7bf3
 
 COCOAPODS: 0.29.0

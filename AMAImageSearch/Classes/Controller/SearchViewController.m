@@ -10,6 +10,7 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "SWRevealViewController.h"
 
 #import "ImageRecord.h"
 #import "ImageSearching.h"
@@ -28,6 +29,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
 
 @property (nonatomic, strong) NSMutableArray *images;
 
@@ -77,6 +79,11 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Add "hamburger" button for reveal view controller.
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
  
     [self.collectionView registerClass:[AMAImageViewCell class] forCellWithReuseIdentifier:ImageCellIdentifier];
     
@@ -223,6 +230,14 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     return sharedClient;
 }
 
+#pragma mark - Implement Search image protocol
+- (void)searchImage
+{
+    [self updateTitle];
+    [self loadImagesWithOffset:0]; // reset offset if search engine is changed
+}
+
+
 - (void)loadImagesWithOffset:(int)offset
 {
     if (offset == 0) {
@@ -234,15 +249,17 @@ static const CGFloat kCellEqualSpacing = 15.0f;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     
+    __weak SearchViewController *weakSelf = self;
+
     [[self activeSearchClient] findImagesForQuery:self.searchbar.text withOffset:offset
          success:^(NSURLSessionDataTask *dataTask, NSArray *imageArray) {
              if (offset == 0) {
-                 self.images = [NSMutableArray arrayWithArray:imageArray];
+                 weakSelf.images = [NSMutableArray arrayWithArray:imageArray];
              } else {
-                 [self.images addObjectsFromArray:imageArray];
+                 [weakSelf.images addObjectsFromArray:imageArray];
              }
              
-             [self.collectionView reloadData];
+             [weakSelf.collectionView reloadData];
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  if (offset == 0) {
@@ -252,6 +269,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
          }
          failure:^(NSURLSessionDataTask *dataTask, NSError *error) {
              NSLog(@"An error occured while searching for images, %@", [error description]);
+             [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
          }
      ];
 }
