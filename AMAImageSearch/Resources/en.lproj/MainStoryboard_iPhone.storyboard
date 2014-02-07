@@ -120,7 +120,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Jfb-O1-Uzv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="gnA-um-wGc">
                             <connections>
-                                <action selector="shareOnFacebook:" destination="aP3-7g-3x4" id="1FN-Fr-BZc"/>
+                                <action selector="shareImage:" destination="aP3-7g-3x4" id="3Om-qg-aEc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

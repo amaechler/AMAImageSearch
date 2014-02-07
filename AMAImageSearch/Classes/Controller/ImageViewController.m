@@ -19,7 +19,7 @@
 #define kFacebookShareDescription @"Search and Share images using AMAImageSearch"
 
 
-@interface ImageViewController () <UIScrollViewDelegate>
+@interface ImageViewController () <UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -147,7 +147,29 @@
     self.scrollView.zoomScale = minZoom;
 }
 
-- (IBAction)shareOnFacebook:(UIBarButtonItem *)sender {
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSInteger firstOtherButtonIndex = [actionSheet firstOtherButtonIndex];
+    if (firstOtherButtonIndex != -1 && firstOtherButtonIndex == buttonIndex)
+    {
+        [self shareOnFacebook];
+    }
+}
+
+- (IBAction)shareImage:(UIBarButtonItem *)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel" // index 0
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:@"Share on Facebook", nil]; // index 1
+
+    [popupQuery showInView:self.view];
+}
+
+- (void)shareOnFacebook
+{
     // Check if the Facebook app is installed and we can present the share dialog
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
     params.link = self.imageURL;
