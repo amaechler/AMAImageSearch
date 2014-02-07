@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8AA18A42160000FEB69 /* MenuViewController.m */; };
+		4F1C37AA18A5A4CA00C007F4 /* AMAHelperUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1C37A918A5A4CA00C007F4 /* AMAHelperUtils.m */; };
+		4F1C37AD18A5A5BB00C007F4 /* FBShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */; };
 		4F1D50B118A572A30077EE0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D50B018A572A30077EE0E /* Images.xcassets */; };
 		4F62BA4E189888590024AECE /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */; };
@@ -34,6 +36,10 @@
 /* Begin PBXFileReference section */
 		1633F8A918A42160000FEB69 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		1633F8AA18A42160000FEB69 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		4F1C37A818A5A4CA00C007F4 /* AMAHelperUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAHelperUtils.h; sourceTree = "<group>"; };
+		4F1C37A918A5A4CA00C007F4 /* AMAHelperUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAHelperUtils.m; sourceTree = "<group>"; };
+		4F1C37AB18A5A5BB00C007F4 /* FBShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShareController.h; sourceTree = "<group>"; };
+		4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShareController.m; sourceTree = "<group>"; };
 		4F1D50B018A572A30077EE0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
@@ -115,6 +121,10 @@
 				4F6B2218189C78A500B49921 /* ImageViewController.m */,
 				4F6B2219189C78A500B49921 /* SearchViewController.h */,
 				4F6B221A189C78A500B49921 /* SearchViewController.m */,
+				4F1C37A818A5A4CA00C007F4 /* AMAHelperUtils.h */,
+				4F1C37A918A5A4CA00C007F4 /* AMAHelperUtils.m */,
+				4F1C37AB18A5A5BB00C007F4 /* FBShareController.h */,
+				4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */,
 			);
 			name = Controller;
 			path = Classes/Controller;
@@ -309,7 +319,9 @@
 			files = (
 				4FBFFE8718A0541B006EC296 /* AMAImageViewCell.m in Sources */,
 				4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */,
+				4F1C37AD18A5A5BB00C007F4 /* FBShareController.m in Sources */,
 				4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */,
+				4F1C37AA18A5A4CA00C007F4 /* AMAHelperUtils.m in Sources */,
 				4FB62C9F1613266700B10E30 /* main.m in Sources */,
 				4FB62D08161327F200B10E30 /* AppDelegate.m in Sources */,
 				4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */,
@@ -400,7 +412,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hsin-yiberg/Documents/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
@@ -420,7 +431,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/hsin-yiberg/Documents/FacebookSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
