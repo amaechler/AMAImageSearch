@@ -56,7 +56,7 @@ static NSString * const kAFBingAPIPrimaryAccountKey = @"";
     [[AFBingAPIClient sharedClient] GET:@"Image" parameters:parameterDict
         success:^(NSURLSessionDataTask *operation, id responseObject) {
             NSArray *jsonObjects = [responseObject valueForKeyPath:@"d.results"];
-            NSLog(@"Found %d objects...", [jsonObjects count]);
+            NSLog(@"Found %lu objects...", (unsigned long)[jsonObjects count]);
             
             NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:jsonObjects.count];
             for (NSDictionary *jsonDict in jsonObjects) {

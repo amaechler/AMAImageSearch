@@ -40,7 +40,7 @@ static NSString * const kAFTumblrAPIKey = @"";
     [[AFUnsplashAPIClient sharedClient] GET:@"photo" parameters:parameterDict
         success:^(NSURLSessionDataTask *operation, id responseObject) {
             NSArray *jsonObjects = [responseObject valueForKeyPath:@"response.posts"];
-            NSLog(@"Found %d objects...", [jsonObjects count]);
+            NSLog(@"Found %lu objects...", (unsigned long)[jsonObjects count]);
             
             NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:jsonObjects.count];
             for (NSDictionary *jsonDict in jsonObjects) {

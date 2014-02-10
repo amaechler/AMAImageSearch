@@ -44,7 +44,7 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
             }
             
             NSArray *jsonObjects = [[responseObject objectForKey:@"responseData"] objectForKey:@"results"];
-            NSLog(@"Found %d objects...", [jsonObjects count]);
+            NSLog(@"Found %lu objects...", (unsigned long)[jsonObjects count]);
             
             NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:jsonObjects.count];
             for (NSDictionary *jsonDict in jsonObjects) {

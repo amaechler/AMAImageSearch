@@ -57,7 +57,7 @@ static NSString * const kAFInstagramAPIClientID = @"";
     [[AFInstagramAPIClient sharedClient] GET:path parameters:parameterDict
         success:^(NSURLSessionDataTask *operation, id responseObject) {
             NSArray *jsonObjects = [responseObject objectForKey:@"data"];
-            NSLog(@"Found %d objects...", [jsonObjects count]);
+            NSLog(@"Found %lu objects...", (unsigned long)[jsonObjects count]);
             
             self.max_id = [responseObject valueForKeyPath:@"pagination.next_max_tag_id"];
             

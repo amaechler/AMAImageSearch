@@ -156,7 +156,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     
     // Check if this has been the last item, if so start loading more images...
     if (indexPath.row == [self.images count] - 1) {
-        [self loadImagesWithOffset:[self.images count]];
+        [self loadImagesWithOffset:(int)[self.images count]];
     };
     
     return cell;
