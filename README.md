@@ -9,12 +9,12 @@ Furthermore, the collection view uses **CHTCollectionViewWaterfallLayout** to ge
 [![Alt][screenshot2_thumb]][screenshot2]
 [![Alt][screenshot3_thumb]][screenshot3]
 
-[screenshot1_thumb]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/bing_facest.png
-[screenshot1]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/bing_faces.png
-[screenshot2_thumb]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/bing_alpst.png
-[screenshot2]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/bing_alps.png
-[screenshot3_thumb]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/single_imaget.png
-[screenshot3]: https://raw2.github.com/amaechler/AMAImageSearch/master/_Screenshots/single_image.png
+[screenshot1_thumb]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/bing_facest.png
+[screenshot1]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/bing_faces.png
+[screenshot2_thumb]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/bing_alpst.png
+[screenshot2]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/bing_alps.png
+[screenshot3_thumb]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/single_imaget.png
+[screenshot3]: https://raw.githubusercontent.com/amaechler/AMAImageSearch/master/_Screenshots/single_image.png
 
 ## Cocoapods
 
@@ -23,12 +23,12 @@ The project uses the awesome [Cocoapods](http://cocoapods.org) to fetch the depe
 * [AFNetworking 2](https://github.com/AFNetworking/AFNetworking)
 * [MBProgressHUD](https://github.com/jdg/MBProgressHUD)
 * [CHTCollectionViewWaterfallLayout](https://github.com/chiahsien/CHTCollectionViewWaterfallLayout)
-	
+
 
 ## HTTP Clients
 
 * **Instagram** image search
- 	* 	Provide your own *Client ID* from your instagram (developer) account. 
+ 	* 	Provide your own *Client ID* from your instagram (developer) account.
 * **Google Image Search**, the deprectated API though. It is simply much simpler and more convient to use.
 * **Bing** image search
 	*	Provide your Bing application *Client secret* to use the search.
