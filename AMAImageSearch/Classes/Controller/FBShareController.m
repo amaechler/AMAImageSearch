@@ -22,12 +22,12 @@
 + (void)shareImageURLOnFacebook:(NSURL *)imageURL
 {
     // Check if the Facebook app is installed and we can present the share dialog
-    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
     params.link = imageURL;
     params.name = kFacebookShareName;
     params.caption = kFacebookShareCaption;
     params.picture = imageURL;
-    params.description = kFacebookShareDescription;
+    // params.description = kFacebookShareDescription;
     
     // If the Facebook app is installed and we can present the share dialog
     if ([FBDialogs canPresentShareDialogWithParams:params]) {
