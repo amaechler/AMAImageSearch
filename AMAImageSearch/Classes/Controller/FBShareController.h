@@ -10,6 +10,6 @@
 
 @interface FBShareController : NSObject
 
-+ (void)shareImageURLOnFacebook:(NSURL *)imageURL;
++ (void)shareImageURLOnFacebook:(NSURL *)imageURL fromViewController:(UIViewController *)viewController;
 
 @end

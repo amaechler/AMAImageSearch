@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "FacebookSDK.h"
-#import "AMAHelperUtils.h"
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @implementation AppDelegate
 
@@ -17,7 +17,8 @@
     // Register the preference defaults early.
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFGoogleAPIClient" }];
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -40,6 +41,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -53,31 +56,10 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    BOOL urlWasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication
-        fallbackHandler:^(FBAppCall *call) {
-            NSLog(@"Unhandled deep link: %@", url);
-            
-            // Parse the incoming URL to look for a target_url parameter
-            NSString *query = [url fragment];
-            if (!query) {
-                query = [url query];
-            }
-            
-            NSDictionary *params = [AMAHelperUtils parseURLParams:query];
-            // Check if target URL exists
-            NSString *targetURLString = [params valueForKey:@"target_url"];
-            if (targetURLString) {
-                // Show the incoming link in an alert
-                // Your code to direct the user to the appropriate flow within your app goes here
-                [[[UIAlertView alloc] initWithTitle:@"Received link:"
-                                            message:targetURLString
-                                           delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil] show];
-            }
-        }];
-    
-    return urlWasHandled;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 @end

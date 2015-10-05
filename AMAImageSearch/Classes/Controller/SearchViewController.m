@@ -98,7 +98,7 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     [self updateLayout];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
 }

@@ -148,19 +148,30 @@
 {
     NSInteger firstOtherButtonIndex = [actionSheet firstOtherButtonIndex];
     if (firstOtherButtonIndex != -1 && firstOtherButtonIndex == buttonIndex) {
-        [FBShareController shareImageURLOnFacebook:self.imageURL];
     }
 }
 
 - (IBAction)shareImage:(UIBarButtonItem *)sender
 {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil
-                                                            delegate:self
-                                                   cancelButtonTitle:@"Cancel" // index 0
-                                              destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"Share on Facebook", nil]; // index 1
-
-    [popupQuery showInView:self.view];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:@"Share"
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Share on Facebook"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction *action) {
+        // Share button tapped.
+        [FBShareController shareImageURLOnFacebook:self.imageURL fromViewController:self];
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction *action) {
+        // Cancel button tapped.
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
