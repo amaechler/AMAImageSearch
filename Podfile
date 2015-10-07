@@ -1,9 +1,8 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
 
 pod 'AFNetworking', '~> 2.0'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'SWRevealViewController', '~> 2.0'
-pod 'FBSDKShareKit', '~> 4.0'
 
 #pod 'CHTCollectionViewWaterfallLayout', '~> 0.1'
 pod 'CHTCollectionViewWaterfallLayout', :git => 'https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git'

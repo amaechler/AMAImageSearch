@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1633F8AB18A42160000FEB69 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1633F8AA18A42160000FEB69 /* MenuViewController.m */; };
-		4F1C37AD18A5A5BB00C007F4 /* FBShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */; };
 		4F1D50B118A572A30077EE0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D50B018A572A30077EE0E /* Images.xcassets */; };
 		4F62BA4E189888590024AECE /* (null) in Resources */ = {isa = PBXBuildFile; };
 		4F6B2223189C78A500B49921 /* AFGoogleAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */; };
@@ -37,8 +36,6 @@
 		1633F8AA18A42160000FEB69 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		414B5C6C99BE130C2A74A58E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4441F43570376D0DEF139F36 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4F1C37AB18A5A5BB00C007F4 /* FBShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShareController.h; sourceTree = "<group>"; };
-		4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShareController.m; sourceTree = "<group>"; };
 		4F1D50B018A572A30077EE0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F6B2211189C78A500B49921 /* AFGoogleAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFGoogleAPIClient.h; sourceTree = "<group>"; };
 		4F6B2212189C78A500B49921 /* AFGoogleAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFGoogleAPIClient.m; sourceTree = "<group>"; };
@@ -119,8 +116,6 @@
 				4F6B2218189C78A500B49921 /* ImageViewController.m */,
 				4F6B2219189C78A500B49921 /* SearchViewController.h */,
 				4F6B221A189C78A500B49921 /* SearchViewController.m */,
-				4F1C37AB18A5A5BB00C007F4 /* FBShareController.h */,
-				4F1C37AC18A5A5BB00C007F4 /* FBShareController.m */,
 			);
 			name = Controller;
 			path = Classes/Controller;
@@ -324,7 +319,6 @@
 			files = (
 				4FBFFE8718A0541B006EC296 /* AMAImageViewCell.m in Sources */,
 				4F6B2230189C795700B49921 /* AFBingAPIClient.m in Sources */,
-				4F1C37AD18A5A5BB00C007F4 /* FBShareController.m in Sources */,
 				4F6B2225189C78A500B49921 /* ImageViewController.m in Sources */,
 				4FB62C9F1613266700B10E30 /* main.m in Sources */,
 				4FB62D08161327F200B10E30 /* AppDelegate.m in Sources */,
@@ -419,6 +413,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amaechler.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -438,6 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AMAImageSearch/AMAImageSearch-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/AMAImageSearch/AMAImageSearch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amaechler.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

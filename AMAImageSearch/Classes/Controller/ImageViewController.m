@@ -10,7 +10,6 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "MBProgressHUD.h"
-#import "FBShareController.h"
 
 
 @interface ImageViewController () <UIScrollViewDelegate, UIActionSheetDelegate>
@@ -153,25 +152,14 @@
 
 - (IBAction)shareImage:(UIBarButtonItem *)sender
 {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
-                                                                             message:@"Share"
-                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    // Get the image
+    UIImage *image = self.imageView.image;
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Share on Facebook"
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction *action) {
-        // Share button tapped.
-        [FBShareController shareImageURLOnFacebook:self.imageURL fromViewController:self];
-    }]];
+    UIActivityViewController *activityViewController =
+        [[UIActivityViewController alloc] initWithActivityItems:@[@"", image]
+                                          applicationActivities:nil];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel"
-                                                        style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction *action) {
-        // Cancel button tapped.
-        [self dismissViewControllerAnimated:YES completion:^{}];
-    }]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 
