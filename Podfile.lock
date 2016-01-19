@@ -23,30 +23,21 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CHTCollectionViewWaterfallLayout (0.5)
+  - CHTCollectionViewWaterfallLayout (0.9.2)
   - MBProgressHUD (0.9.2)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger
   - AFNetworking (~> 2.0)
-  - CHTCollectionViewWaterfallLayout (from `https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git`)
+  - CHTCollectionViewWaterfallLayout (~> 0.9)
   - MBProgressHUD (~> 0.8)
   - SWRevealViewController (~> 2.0)
-
-EXTERNAL SOURCES:
-  CHTCollectionViewWaterfallLayout:
-    :git: https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git
-
-CHECKOUT OPTIONS:
-  CHTCollectionViewWaterfallLayout:
-    :commit: f0561f2012f3d97c50e43fd77aa0bd94e8669caf
-    :git: https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CHTCollectionViewWaterfallLayout: 0258ef933a01529c4239dbbdb8feeee7464f0a84
+  CHTCollectionViewWaterfallLayout: 43232febcb3e4d3985cd758718cbe499b21b822f
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 

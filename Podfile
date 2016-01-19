@@ -6,5 +6,4 @@ pod 'AFNetworkActivityLogger'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'SWRevealViewController', '~> 2.0'
 
-#pod 'CHTCollectionViewWaterfallLayout', '~> 0.1'
-pod 'CHTCollectionViewWaterfallLayout', :git => 'https://github.com/amaechler/CHTCollectionViewWaterfallLayout.git'
+pod 'CHTCollectionViewWaterfallLayout', '~> 0.9'

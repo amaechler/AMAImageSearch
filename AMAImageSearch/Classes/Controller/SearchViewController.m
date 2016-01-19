@@ -80,8 +80,6 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     
     CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
     layout.sectionInset = UIEdgeInsetsMake(0, kCellEqualSpacing, 0, kCellEqualSpacing);
-    layout.verticalItemSpacing = kCellEqualSpacing;
-    //layout.columnCount = kColumnCounting;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -95,7 +93,8 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self updateLayout];
+
+    [self updateLayoutForOrientation:[UIApplication sharedApplication].statusBarOrientation];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -109,17 +108,16 @@ static const CGFloat kCellEqualSpacing = 15.0f;
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
                                             duration:duration];
 
-    [self updateLayout];
+    [self updateLayoutForOrientation:toInterfaceOrientation];
 }
 
-- (void)updateLayout
+- (void)updateLayoutForOrientation:(UIInterfaceOrientation)orientation
 {
     CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
-    
-    layout.columnCount = (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) ?
-                            kColumnCountPortrait :
-                            kColumnCountLandscape;
-    layout.itemWidth = (self.collectionView.bounds.size.width - (layout.columnCount + 1) * kCellEqualSpacing) / layout.columnCount;
+
+    layout.columnCount = (UIInterfaceOrientationIsPortrait(orientation)) ?
+        kColumnCountPortrait :
+        kColumnCountLandscape;
 }
 
 
@@ -190,15 +188,13 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 #pragma mark - CHTCollectionViewWaterfallLayoutDelagate
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView
+- (CGSize)collectionView:(UICollectionView *)collectionView
     layout:(CHTCollectionViewWaterfallLayout *)collectionViewLayout
-    heightForItemAtIndexPath:(NSIndexPath *)indexPath
+    sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
-    
-    CHTCollectionViewWaterfallLayout *layout = (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
 
-    return imageRecord.thumbnailSize.height * (layout.itemWidth / imageRecord.thumbnailSize.width);
+    return imageRecord.thumbnailSize;
 }
 
 

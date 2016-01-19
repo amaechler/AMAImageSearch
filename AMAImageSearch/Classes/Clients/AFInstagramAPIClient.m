@@ -84,8 +84,6 @@ static NSString * const kAFInstagramAPIClientID = @"";
                                                        [[jsonDict valueForKeyPath:@"images.thumbnail.height"] floatValue]);
 
                 imageRecord.imageURL = [NSURL URLWithString:[jsonDict valueForKeyPath:@"images.standard_resolution.url"]];
-                imageRecord.imageSize = CGSizeMake([[jsonDict valueForKeyPath:@"images.standard_resolution.width"] floatValue],
-                                                   [[jsonDict valueForKeyPath:@"images.standard_resolution.height"] floatValue]);
                 
                 [imageArray addObject:imageRecord];
             }
