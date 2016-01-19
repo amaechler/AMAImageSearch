@@ -28,11 +28,13 @@ The project uses the awesome [Cocoapods](http://cocoapods.org) to fetch the depe
 ## HTTP Clients
 
 * **Instagram** image search
- 	* 	Provide your own *Client ID* from your instagram (developer) account.
-* **Google Image Search**, the deprectated API though. It is simply much simpler and more convient to use.
+ * Provide your own *Client ID* from your Instagram (developer) account.
+* **Google Image Search**
+ * Using the Custom Google Search API.
+ * Update the code with your *API Key* and *Custom Search Engine ID*.
 * **Bing** image search
-	*	Provide your Bing application *Client secret* to use the search.
+ * Provide your Bing application *Client secret* to use the search.
 * **Unsplash** image listing from Tumblr
-	*	Provide your Tumblr *API key* to use the listing.
+ * Provide your Tumblr *API key* to use the listing.
 
 Any feedback is greatly appreciated. All code is freely available under the [Creative Commons Attribution (BY)](http://creativecommons.org/licenses/by/3.0/) License.
