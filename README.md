@@ -1,6 +1,8 @@
 AMAImageSearch
 ========================
 
+[![Build Status](https://travis-ci.org/amaechler/AMAImageSearch.svg?branch=master)](https://travis-ci.org/amaechler/AMAImageSearch)
+
 This is a sample project I created for a small iOS development introduction at our company. It demonstrates **UICollectionViews**, makes use of **AFNetworking** and parses **JSON** to display images from the web.
 
 Furthermore, the collection view uses **CHTCollectionViewWaterfallLayout** to get a Pinterest-style view layout.
