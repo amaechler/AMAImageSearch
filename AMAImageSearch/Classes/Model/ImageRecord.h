@@ -17,6 +17,5 @@
 @property (nonatomic, assign) CGSize thumbnailSize;
 
 @property (nonatomic, strong) NSURL *imageURL;
-@property (nonatomic, assign) CGSize imageSize;
 
 @end

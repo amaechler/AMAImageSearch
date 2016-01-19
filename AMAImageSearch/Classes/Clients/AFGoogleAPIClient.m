@@ -8,11 +8,14 @@
 
 #import "AFGoogleAPIClient.h"
 
-//#import "AFJSONRequestOperation.h"
 #import "ImageRecord.h"
 
-// http://ajax.googleapis.com/ajax/services/search/images?v=1.0&rsz=8&q=dog
-static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com";
+// https://www.googleapis.com/customsearch/v1?q=laura&key=&cx=&searchtype=image
+static NSString * const kAFGoogleAPIBaseURLString = @"https://www.googleapis.com";
+
+#warning Add your own Google API key and Google Custom Search Engine ID here first
+static NSString * const kAFGoogleAPIKeyString = @"";
+static NSString * const kAFGoogleAPIEngineIDString = @"";
 
 
 @implementation AFGoogleAPIClient
@@ -35,32 +38,36 @@ static NSString * const kAFGoogleAPIBaseURLString = @"http://ajax.googleapis.com
 
 - (void)findImagesForQuery:(NSString *)query withOffset:(int)offset success:(ISSuccessBlock)success failure:(ISFailureBlock)failure
 {
-    NSDictionary *parameterDict = @{ @"v": @"1.0", @"rsz": @"8", @"start": [@(offset) stringValue], @"q": query };
+    NSDictionary *parameterDict = @{
+        @"key": kAFGoogleAPIKeyString,
+        @"cx": kAFGoogleAPIEngineIDString,
+        @"searchtype": @"image",
+        @"fields" : @ "items",
+        @"start": [@(offset + 1) stringValue],
+        @"q": query
+    };
     
-    [[AFGoogleAPIClient sharedClient] GET:@"ajax/services/search/images" parameters:parameterDict
+    [[AFGoogleAPIClient sharedClient] GET:@"customsearch/v1" parameters:parameterDict
         success:^(NSURLSessionDataTask *dataTask, id responseObject) {
-            if ([responseObject objectForKey:@"responseData"] == [NSNull null]) {
+            if ([responseObject objectForKey:@"items"] == [NSNull null]) {
                 return;
             }
             
-            NSArray *jsonObjects = [[responseObject objectForKey:@"responseData"] objectForKey:@"results"];
+            NSArray *jsonObjects = [responseObject objectForKey:@"items"];
             NSLog(@"Found %lu objects...", (unsigned long)[jsonObjects count]);
             
             NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:jsonObjects.count];
             for (NSDictionary *jsonDict in jsonObjects) {
                 ImageRecord *imageRecord = [[ImageRecord alloc] init];
                 
-                imageRecord.title = [jsonDict objectForKey:@"contentNoFormatting"];
-                imageRecord.details = [jsonDict objectForKey:@"originalContextUrl"];
-                
-                imageRecord.thumbnailURL = [NSURL URLWithString:[jsonDict objectForKey:@"tbUrl"]];
-                imageRecord.thumbnailSize = CGSizeMake([[jsonDict valueForKeyPath:@"tbWidth"] floatValue],
-                                                       [[jsonDict valueForKeyPath:@"tbHeight"] floatValue]);
+                imageRecord.title = [jsonDict objectForKey:@"title"];
+                imageRecord.details = [jsonDict objectForKey:@"displayLink"];
 
-                imageRecord.imageURL = [NSURL URLWithString:[jsonDict objectForKey:@"url"]];
-                imageRecord.imageSize = CGSizeMake([[jsonDict valueForKeyPath:@"width"] floatValue],
-                                                       [[jsonDict valueForKeyPath:@"height"] floatValue]);
-                
+                imageRecord.thumbnailURL = [NSURL URLWithString:[(NSArray *)[jsonDict valueForKeyPath:@"pagemap.cse_thumbnail.src"] firstObject]];
+                imageRecord.thumbnailSize = CGSizeMake([[(NSArray *)[jsonDict valueForKeyPath:@"pagemap.cse_thumbnail.width"] firstObject] floatValue],
+                                                       [[(NSArray *)[jsonDict valueForKeyPath:@"pagemap.cse_thumbnail.height"] firstObject] floatValue]);
+
+                imageRecord.imageURL = [NSURL URLWithString:[(NSArray *)[jsonDict valueForKeyPath:@"pagemap.cse_image.src"] firstObject]];
                 [imageArray addObject:imageRecord];
             }
             

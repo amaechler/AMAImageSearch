@@ -72,8 +72,6 @@ static NSString * const kAFTumblrAPIKey = @"";
                 }
 
                 imageRecord.imageURL = [NSURL URLWithString:[originalPhoto valueForKeyPath:@"url"]];
-                imageRecord.imageSize = CGSizeMake([[originalPhoto valueForKeyPath:@"width"] floatValue],
-                                                   [[originalPhoto valueForKeyPath:@"height"] floatValue]);
 
                 [imageArray addObject:imageRecord];
             }
