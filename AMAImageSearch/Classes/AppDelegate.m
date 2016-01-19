@@ -8,13 +8,17 @@
 
 #import "AppDelegate.h"
 
+#import "AFNetworkActivityLogger.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Register the preference defaults early.
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFGoogleAPIClient" }];
-    
+ 
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+
     return YES;
 }
 
