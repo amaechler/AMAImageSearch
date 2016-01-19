@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c2v-sD-eRX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="c2v-sD-eRX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--SearchAPI-->
@@ -18,7 +19,6 @@
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y7C-U5-KHs">
                                 <rect key="frame" x="0.0" y="44" width="320" height="460"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="Ql2-fW-Ing" customClass="CHTCollectionViewWaterfallLayout"/>
                                 <cells>
@@ -28,10 +28,8 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <animations/>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
                                             <segue destination="aP3-7g-3x4" kind="push" identifier="ImageViewSegue" id="L91-lP-Pcx"/>
@@ -45,7 +43,6 @@
                             </collectionView>
                             <searchBar contentMode="redraw" placeholder="Search Images" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-ms-sAn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <animations/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -56,7 +53,6 @@
                                 </connections>
                             </searchBar>
                         </subviews>
-                        <animations/>
                         <constraints>
                             <constraint firstItem="Y7C-U5-KHs" firstAttribute="top" secondItem="EAB-ms-sAn" secondAttribute="bottom" id="4yZ-iw-sEb"/>
                             <constraint firstItem="Y7C-U5-KHs" firstAttribute="trailing" secondItem="EAB-ms-sAn" secondAttribute="trailing" id="5kb-G1-Vl8"/>
@@ -98,10 +94,8 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="rzn-4c-066">
                                         <rect key="frame" x="60" y="184" width="200" height="200"/>
-                                        <animations/>
                                     </imageView>
                                 </subviews>
-                                <animations/>
                                 <constraints>
                                     <constraint firstItem="rzn-4c-066" firstAttribute="top" secondItem="xzD-Lo-Mgc" secondAttribute="top" constant="184" id="M01-qX-3kg"/>
                                     <constraint firstItem="rzn-4c-066" firstAttribute="leading" secondItem="xzD-Lo-Mgc" secondAttribute="leading" constant="60" id="XCY-T6-xbW"/>
@@ -113,7 +107,6 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xzD-Lo-Mgc" firstAttribute="leading" secondItem="MDo-eH-qIE" secondAttribute="leading" id="40K-V1-TWp"/>
@@ -149,12 +142,10 @@
                 <navigationController definesPresentationContext="YES" id="ngm-lX-Py9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1YT-X2-0Hg">
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1mi-yK-ASp">
                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </toolbar>
                     <connections>
                         <segue destination="0at-Jq-2bd" kind="relationship" relationship="rootViewController" id="FXw-Bp-mf5"/>
@@ -171,7 +162,6 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" id="dV7-Ac-tee">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchProviderCell" textLabel="PNo-mG-vDK" style="IBUITableViewCellStyleDefault" id="dqt-td-Awh">
@@ -184,15 +174,12 @@
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PNo-mG-vDK">
                                             <rect key="frame" x="15" y="0.0" width="290" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -217,7 +204,6 @@
                     <view key="view" contentMode="scaleToFill" id="WkH-Bg-FaU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>

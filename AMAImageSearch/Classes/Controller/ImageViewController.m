@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 
 
-@interface ImageViewController () <UIScrollViewDelegate, UIActionSheetDelegate>
+@interface ImageViewController () <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -140,15 +140,6 @@
     self.scrollView.zoomScale = minZoom;
 }
 
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSInteger firstOtherButtonIndex = [actionSheet firstOtherButtonIndex];
-    if (firstOtherButtonIndex != -1 && firstOtherButtonIndex == buttonIndex) {
-    }
-}
 
 - (IBAction)shareImage:(UIBarButtonItem *)sender
 {
