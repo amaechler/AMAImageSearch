@@ -42,6 +42,8 @@ static const CGFloat kCellEqualSpacing = 15.0f;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onApplicationWillEnterForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
